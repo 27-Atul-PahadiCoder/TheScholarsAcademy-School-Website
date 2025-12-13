@@ -140,6 +140,10 @@ const lazyPages = {
     () => import("./components/admin/AdminDashboard"),
     "AdminDashboard"
   ),
+  adminMedia: lazyNamedComponent(
+    () => import("./components/MediaComponent/AdminMediaDashboard"),
+    "default"
+  ),
 };
 
 type RouteConfig = {
@@ -149,6 +153,7 @@ type RouteConfig = {
 
 const routedPages: Record<string, RouteConfig> = {
   "/admin": { component: lazyPages.admin, standalone: true },
+  "/admin/media": { component: lazyPages.adminMedia, standalone: true },
   "/about-us": { component: lazyPages.about },
   "/our-vision": { component: lazyPages.vision },
   "/founders-message": { component: lazyPages.founders },

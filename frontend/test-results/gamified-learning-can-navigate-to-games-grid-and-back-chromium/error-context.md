@@ -110,6 +110,6 @@
             - /url: "#contact"
       - generic [ref=e166]:
         - text: "Made with ❤️ by :"
-        - link "Atul Oli" [ref=e167] [cursor=pointer]:
+        - link:
           - /url: https://www.linkedin.com/in/atul-oli27-intech/
 ```

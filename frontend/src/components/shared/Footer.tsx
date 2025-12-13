@@ -1,5 +1,8 @@
+import { useState } from "react";
+
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const [showName, setShowName] = useState(false);
 
   const footerLinks = [
     { href: "#about", label: "About" },
@@ -29,17 +32,23 @@ export function Footer() {
             ))}
           </div>
         </div>
-        <div className="mt-6 text-center">
+
+        <div
+          className="mt-6 text-center cursor-pointer"
+          onMouseEnter={() => setShowName(true)}
+          onClick={() => setShowName(true)}
+          onMouseLeave={() => setShowName(false)} // optional: hide on leaving
+        >
           <span className="block text-sm text-gray-700 font-semibold mb-2">
             Made with ❤️ by :
           </span>
           <a
             href="https://www.linkedin.com/in/atul-oli27-intech/"
-            className="text-lg font-bold text-indigo-600 hover:text-indigo-800 transition-colors"
             target="_blank"
             rel="noopener noreferrer"
+            className="inline-block text-lg font-bold text-indigo-600 hover:text-indigo-800 transition-colors"
           >
-            Atul Oli
+            {showName ? "Atul Oli" : ""}
           </a>
         </div>
       </div>

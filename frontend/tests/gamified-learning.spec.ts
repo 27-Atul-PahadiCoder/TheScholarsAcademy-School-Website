@@ -44,12 +44,11 @@ test("can navigate to games grid and back", async ({ page }) => {
   await expect(page.getByText(/Word Puzzle/i)).toBeVisible();
 
   // Back to home via header icon
-  await page
-    .getByRole("button", { name: /Home/i })
-    .or(page.getByRole("button", { name: /Back/i }))
-    .first()
-    .click()
-    .catch(() => {});
+  await page.getByTestId("back-button").click({ force: true });
+  await page.waitForFunction(() => (window as any).screen === "home");
+  await expect(
+    page.getByRole("heading", { name: /Learn Through Play!/i })
+  ).toBeVisible();
 });
 
 test("math game screen loads from games grid", async ({ page }) => {

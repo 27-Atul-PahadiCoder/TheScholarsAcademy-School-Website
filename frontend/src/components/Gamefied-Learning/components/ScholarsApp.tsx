@@ -35,11 +35,31 @@ type Screen =
 
 function ScholarsApp() {
   const [screen, setScreen] = useState<Screen>("home");
+  const [navigationHistory, setNavigationHistory] = useState<Screen[]>([]);
   const [points, setPoints] = useState(0);
   const [level, setLevel] = useState(1);
   const [streak, setStreak] = useState(0);
   const [soundOn, setSoundOn] = useState(true);
   const [achievements, setAchievements] = useState<string[]>([]);
+
+  // Custom setScreen function to manage history
+  const navigateTo = (newScreen: Screen) => {
+    if (newScreen !== screen) {
+      setNavigationHistory((prevHistory) => [...prevHistory, screen]);
+      setScreen(newScreen);
+    }
+  };
+
+  const navigateBack = () => {
+    if (navigationHistory.length > 0) {
+      const prevScreen = navigationHistory[navigationHistory.length - 1];
+      setNavigationHistory((prevHistory) => prevHistory.slice(0, -1));
+      setScreen(prevScreen);
+    } else {
+      // If history is empty, go to home
+      setScreen("home");
+    }
+  };
 
   useEffect(() => {
     // Load saved progress from localStorage
@@ -144,7 +164,8 @@ function ScholarsApp() {
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => setScreen(screen === "games" ? "home" : "games")}
+                onClick={navigateBack}
+                data-testid="back-button"
               >
                 {screen === "games" ? (
                   <Home className="w-5 h-5" />
@@ -206,7 +227,7 @@ function ScholarsApp() {
           {screen === "home" && (
             <HomeScreen
               key="home"
-              onNavigate={setScreen}
+              onNavigate={navigateTo}
               points={points}
               level={level}
               streak={streak}
@@ -214,14 +235,14 @@ function ScholarsApp() {
           )}
 
           {screen === "games" && (
-            <GamesScreen key="games" games={games} onSelectGame={setScreen} />
+            <GamesScreen key="games" games={games} onSelectGame={navigateTo} />
           )}
 
           {screen === "math" && (
             <MathGame
               key="math"
               onComplete={addPoints}
-              onBack={() => setScreen("games")}
+              onBack={() => navigateTo("games")}
             />
           )}
 
@@ -229,7 +250,7 @@ function ScholarsApp() {
             <MemoryGame
               key="memory"
               onComplete={addPoints}
-              onBack={() => setScreen("games")}
+              onBack={() => navigateTo("games")}
             />
           )}
 
@@ -237,7 +258,7 @@ function ScholarsApp() {
             <QuizGame
               key="quiz"
               onComplete={addPoints}
-              onBack={() => setScreen("games")}
+              onBack={() => navigateTo("games")}
             />
           )}
 
@@ -245,7 +266,7 @@ function ScholarsApp() {
             <WordPuzzle
               key="word"
               onComplete={addPoints}
-              onBack={() => setScreen("games")}
+              onBack={() => navigateTo("games")}
             />
           )}
 

@@ -17,7 +17,7 @@ import {
   getSuboptionById,
 } from "../../config/suboptionsLocks";
 import { loginAdmin, logoutAdmin, hasAdminSession } from "../../api/admin";
-import { GalleryManager } from "./GalleryManager";
+import AdminMediaDashboard from "../MediaComponent/AdminMediaDashboard";
 
 interface AdminStats {
   totalSuboptions: number;
@@ -26,7 +26,7 @@ interface AdminStats {
 }
 
 export function AdminDashboard() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(hasAdminSession());
   const [email, setEmail] = useState("founder@school.com");
   const [passwordInput, setPasswordInput] = useState("");
   const [showPassword, setShowPassword] = useState(false);
@@ -40,13 +40,8 @@ export function AdminDashboard() {
 
   const allSuboptions = Object.values(SUBOPTIONS_LOCKS).flat();
 
-  // Load auth state from sessionStorage
+  // Prevent right-click and dev tools access
   useEffect(() => {
-    const stored = sessionStorage.getItem("admin-authenticated");
-    if (stored === "true" && hasAdminSession()) {
-      setIsAuthenticated(true);
-    }
-    // Prevent right-click and dev tools access
     const preventDevTools = (e: any) => {
       if (e.keyCode === 123) {
         e.preventDefault(); // F12 key
@@ -579,7 +574,7 @@ export function AdminDashboard() {
           })}
         </div>
 
-        <GalleryManager />
+        <AdminMediaDashboard />
       </div>
     </div>
   );

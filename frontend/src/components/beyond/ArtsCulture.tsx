@@ -1,4 +1,4 @@
-import React from "react";
+
 
 export function ArtsCulture() {
   // Define the music and theatre program details

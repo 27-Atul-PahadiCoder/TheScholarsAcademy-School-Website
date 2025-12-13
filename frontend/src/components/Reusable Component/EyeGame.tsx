@@ -67,7 +67,7 @@ const EyeGame: React.FC<EyeGameProps> = ({
     return () => clearTimeout(timer);
   }, [popSignal, popDurationMs]);
 
-  const calcPupil = (eyeRef: React.RefObject<HTMLDivElement>) => {
+  const calcPupil = (eyeRef: React.RefObject<HTMLDivElement | null>) => {
     const rect = eyeRef.current?.getBoundingClientRect();
     if (!rect) return { x: 0, y: 0 };
 
