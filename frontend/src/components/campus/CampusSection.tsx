@@ -22,7 +22,7 @@ export function CampusSection() {
             <img
               src="/images/PhotoMomemts/schoolTwo.jpg"
               alt="Scholars engaged in classroom learning"
-              className="w-full object-cover aspect-[4/3] lg:aspect-[4/3]" // Aspect ratio stays the same, but you can tweak here if necessary
+              className="w-full object-cover aspect-[16/9] lg:aspect-[16/9]" // Aspect ratio stays the same, but you can tweak here if necessary
               loading="lazy"
               decoding="async"
               sizes="(min-width: 1024px) 60vw, 90vw"
@@ -41,7 +41,7 @@ export function CampusSection() {
               <img
                 src="/images/PhotoMomemts/SchoolF.jpg"
                 alt="Students at The Scholar's Academy"
-                className="w-full object-cover aspect-[4/3]"
+                className="w-full object-cover aspect-[16/9]"
                 loading="lazy"
                 decoding="async"
                 sizes="(min-width: 1024px) 35vw, 45vw"

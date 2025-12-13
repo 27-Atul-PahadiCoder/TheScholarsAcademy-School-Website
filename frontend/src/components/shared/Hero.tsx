@@ -79,7 +79,7 @@ export function Hero() {
               <div className="bg-slate-900 rounded-[24px] overflow-hidden relative group w-[400px] h-[400px] hover:scale-105 transition-all duration-300 ease-in-out">
                 {/* Image with hover effect */}
                 <img
-                  src="smilePhoto.png"
+                  src="/images/Faculty-Staff/smilePhoto.png"
                   alt="Background Image"
                   className="w-full h-full object-cover opacity-90 group-hover:opacity-80 transition-opacity duration-300"
                 />
