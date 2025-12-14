@@ -138,7 +138,9 @@ export function Sports() {
               <h4 className="text-xl font-bold mb-2">
                 "Sports day was an unforgettable experience for our child."
               </h4>
-              <div className="text-sm opacity-90 text-gray-800">— Proud Parent</div>
+              <div className="text-sm opacity-90 text-gray-800">
+                — Proud Parent
+              </div>
             </div>
           </div>
 
@@ -150,8 +152,10 @@ export function Sports() {
                 alt="Students playing sports"
                 className="w-full h-48 object-cover block"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparen
-              t" />
+              <div
+                className="absolute inset-0 bg-gradient-to-t from-black/35 to-transparen
+              t"
+              />
               <div className="absolute left-4 bottom-4 text-white">
                 <h5 className="text-lg font-semibold">
                   "Every student finds a game they love."

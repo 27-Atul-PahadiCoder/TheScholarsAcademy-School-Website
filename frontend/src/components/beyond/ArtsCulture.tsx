@@ -5,12 +5,12 @@ export function ArtsCulture() {
     description:
       "The ensemble programs at The Scholar's Academy, both instrumental and choral, offer numerous performance opportunities to all students, regardless of their level of expertise.",
     buttonText: "See Videos",
-    backgroundImage: "/images/PhotoMomemts/IMG_20230811_1241322-300x225.jpg", // Make sure this image path is correct
+    backgroundImage: "/images/music-Dance/Music_Dance04.jpg", // Make sure this image path is correct
     galleryImages: [
-      "/images/PhotoMomemts/P1050793-scaled.jpg",
-      "/images/PhotoMomemts/P1050793-scaled.jpg",
-      "/images/PhotoMomemts/P1050793-scaled.jpg",
-      "/images/PhotoMomemts/P1050793-scaled.jpg",
+      "/images/music-Dance/Music_Dance06.jpg",
+      "/images/music-Dance/Music_Dance01.jpg",
+      "/images/music-Dance/Music_Dance05.jpg",
+      "/images/music-Dance/Music_Dance02.jpg",
     ],
   };
 
@@ -19,12 +19,12 @@ export function ArtsCulture() {
     description:
       "The Scholar's Academy’s theatre program includes teacher-directed plays and many student-directed one-act plays. Courses cover acting, directing, public speaking, Shakespeare, and play production.",
     buttonText: "Theatre Videos",
-    backgroundImage: "/images/PhotoMomemts/IMG_20230811_1241322-300x225.jpg", // Make sure this image path is correct
+    backgroundImage: "/images/music-Dance/Music_Dance07.jpg", // Make sure this image path is correct
     galleryImages: [
-      "/images/PhotoMomemts/P1050793-scaled.jpg",
-      "/images/PhotoMomemts/P1050793-scaled.jpg",
-      "/images/PhotoMomemts/P1050793-scaled.jpg",
-      "/images/PhotoMomemts/P1050793-scaled.jpg",
+      "/images/music-Dance/Music_Dance06.jpg",
+      "/images/music-Dance/Music_Dance05.jpg",
+      "/images/music-Dance/Music_Dance04.jpg",
+      "/images/music-Dance/Music_Dance03.jpg",
     ],
   };
 
@@ -39,7 +39,7 @@ export function ArtsCulture() {
     return (
       <div className="w-full mb-20">
         {/* Hero Section */}
-        <div className="relative w-full h-[420px] md:h-[500px] overflow-hidden p-6">
+        <div className="relative w-full h-[800px] md:h-[800px] overflow-hidden p-6">
           {" "}
           {/* Added padding here */}
           <div
