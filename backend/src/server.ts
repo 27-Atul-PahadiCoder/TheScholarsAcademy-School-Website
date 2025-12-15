@@ -1,7 +1,7 @@
 import { app } from "./app";
 import { loadEnv, env } from "./config/env";
 // import { connectSql } from "./config/sqlClient";
-import { connectMongo } from "./config/mongoClient";
+import connectMongo from "./config/mongoClient";
 // import { initVectorClient } from "./config/vectorClient";
 import { initMediaController } from "./modules/media/media.controller";
 import { initAdminController } from "./modules/admin/admin.controller";

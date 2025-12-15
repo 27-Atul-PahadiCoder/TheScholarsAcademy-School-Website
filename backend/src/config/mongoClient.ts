@@ -1,21 +1,37 @@
-import mongoose from "mongoose";
-import { env } from "./env";
-import { logger } from "../utils/logger";
+import mongoose, { Mongoose } from 'mongoose';
+import { env } from './env';
+import { logger } from '../utils/logger';
 
-let isConnected = false;
+declare global {
+  var mongoose: {
+    promise: Promise<Mongoose> | null;
+    conn: Mongoose | null;
+  };
+}
 
-export const connectMongo = async () => {
-  if (isConnected) return mongoose.connection;
+let cached = global.mongoose;
 
-  await mongoose.connect(env.MONGODB_URI);
-  isConnected = true;
-  logger.info("Connected to Mongo store");
-  return mongoose.connection;
-};
+if (!cached) {
+  cached = global.mongoose = { conn: null, promise: null };
+}
 
-export const getMongoConnection = () => {
-  if (!isConnected) {
-    throw new Error("Mongo connection not ready");
+async function connectMongo() {
+  if (cached.conn) {
+    return cached.conn;
   }
-  return mongoose.connection;
-};
+
+  if (!cached.promise) {
+    const opts = {
+      bufferCommands: false,
+    };
+
+    cached.promise = mongoose.connect(env.MONGODB_URI, opts).then((mongoose) => {
+      logger.info('Connected to Mongo store');
+      return mongoose;
+    });
+  }
+  cached.conn = await cached.promise;
+  return cached.conn;
+}
+
+export default connectMongo;

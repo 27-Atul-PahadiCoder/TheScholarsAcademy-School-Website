@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import fs from "fs/promises";
 import path from "path";
-import { connectMongo } from "../config/mongoClient";
+import connectMongo from "../config/mongoClient";
 import { env } from "../config/env";
 import { MediaModel } from "../modules/media/media.model";
 
