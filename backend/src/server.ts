@@ -30,3 +30,5 @@ bootstrap().catch((error) => {
   logger.error({ error }, "Failed to start backend");
   process.exit(1);
 });
+
+export default app;
