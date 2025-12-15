@@ -1,6 +1,6 @@
 import mongoose, { Mongoose } from 'mongoose';
-import { env } from './env';
-import { logger } from '../utils/logger';
+import { env } from './env.js';
+import { logger } from '../utils/logger.js';
 
 declare global {
   var mongoose: {
