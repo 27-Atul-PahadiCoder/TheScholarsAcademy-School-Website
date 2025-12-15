@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "vercel-build": "cd frontend && npm install && npm run build && cd .. && rm -rf public && mv frontend/dist public"
+    "vercel-build": "echo '--- Listing root directory ---' && ls -la && echo '--- Building frontend ---' && cd frontend && npm install && npm run build && echo '--- Moving build output ---' && cd .. && rm -rf public && mv frontend/dist public && echo '--- Listing root directory after move ---' && ls -la"
   }
 }
